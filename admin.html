@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Administration — Innov Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <link rel="stylesheet" href="blog.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Innov Events, accueil"><img src="images/Logo/logo%20(3).png" alt="Innov Events" /></a>
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="index.html">Retour au site</a><a href="blog.html">Actualités</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-widget">
+          <button type="button" class="theme-trigger" aria-label="Personnaliser l’apparence" aria-controls="theme-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"/></svg></button>
+          <div class="theme-panel" id="theme-panel">
+            <p class="theme-title">Apparence</p>
+            <div class="theme-options">
+              <button type="button" class="theme-option" data-mode="light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"/></svg>Clair</button>
+              <button type="button" class="theme-option" data-mode="dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>Sombre</button>
+              <button type="button" class="theme-option" data-mode="system"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><path d="M8.5 21h7M12 17v4"/></svg>Système</button>
+            </div>
+            <p class="theme-title">Couleur d’accent</p>
+            <div class="theme-swatches">
+              <button type="button" class="theme-swatch" data-accent="red" style="--sw:#f51e28" aria-label="Rouge signature"></button>
+              <button type="button" class="theme-swatch" data-accent="blue" style="--sw:#2f6fea" aria-label="Bleu"></button>
+              <button type="button" class="theme-swatch" data-accent="green" style="--sw:#1f9d55" aria-label="Vert"></button>
+              <button type="button" class="theme-swatch" data-accent="amber" style="--sw:#e8951c" aria-label="Ambre"></button>
+              <button type="button" class="theme-swatch" data-accent="violet" style="--sw:#7c5cff" aria-label="Violet"></button>
+            </div>
+            <div class="theme-custom">
+              <div class="theme-custom-row">
+                <span>Couleur personnalisée</span>
+                <input type="color" id="theme-custom-color" value="#f51e28" aria-label="Choisir une couleur d’accent personnalisée" />
+              </div>
+              <button type="button" class="theme-reset" id="theme-reset">Réinitialiser</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="admin-wrap">
+
+        <!-- Écran de connexion -->
+        <div class="admin-login" id="admin-login">
+          <h1>Administration</h1>
+          <form id="login-form">
+            <div class="admin-field">
+              <label for="login-email">E-mail</label>
+              <input type="email" id="login-email" required autocomplete="username" />
+            </div>
+            <div class="admin-field">
+              <label for="login-password">Mot de passe</label>
+              <input type="password" id="login-password" required autocomplete="current-password" />
+            </div>
+            <button type="submit" class="admin-submit">Se connecter</button>
+            <p class="admin-msg" id="login-msg"></p>
+          </form>
+        </div>
+
+        <!-- Espace connecté -->
+        <div id="admin-panel" hidden>
+          <div class="admin-header">
+            <h1>Vos articles</h1>
+            <div style="display:flex;gap:10px">
+              <button type="button" class="admin-submit" id="btn-new">+ Nouvel article</button>
+              <button type="button" class="admin-logout" id="btn-logout">Se déconnecter</button>
+            </div>
+          </div>
+
+          <div class="admin-list" id="admin-list">
+            <p class="blog-empty">Chargement…</p>
+          </div>
+
+          <!-- Formulaire d'édition -->
+          <div id="editor" hidden>
+            <h1 id="editor-title">Nouvel article</h1>
+            <form id="article-form">
+              <input type="hidden" id="field-id" />
+              <div class="admin-field">
+                <label for="field-title">Titre</label>
+                <input type="text" id="field-title" required />
+              </div>
+              <div class="admin-field">
+                <label for="field-slug">Adresse de la page (slug)</label>
+                <input type="text" id="field-slug" required />
+              </div>
+              <div class="admin-field">
+                <label for="field-excerpt">Résumé (affiché dans la liste des actualités)</label>
+                <textarea id="field-excerpt" style="min-height:80px"></textarea>
+              </div>
+              <div class="admin-field">
+                <label for="field-cover-file">Image de couverture</label>
+                <input type="file" id="field-cover-file" accept="image/*" />
+                <input type="hidden" id="field-cover-url" />
+                <p class="admin-msg" id="cover-msg"></p>
+                <img id="cover-preview" alt="" style="display:none;max-width:260px;border-radius:6px;margin-top:10px" />
+              </div>
+              <div class="admin-field">
+                <label for="field-content">Contenu — un paragraphe par bloc, séparé par une ligne vide</label>
+                <textarea id="field-content" required></textarea>
+              </div>
+              <div class="admin-field" style="flex-direction:row;align-items:center;gap:10px">
+                <input type="checkbox" id="field-published" style="width:auto" />
+                <label for="field-published" style="text-transform:none;font-weight:600;letter-spacing:0">Publier immédiatement (sinon enregistré comme brouillon)</label>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center">
+                <button type="submit" class="admin-submit" id="btn-save">Enregistrer</button>
+                <button type="button" class="admin-logout" id="btn-cancel">Annuler</button>
+              </div>
+              <p class="admin-msg" id="form-msg"></p>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <footer><a class="brand" href="index.html"><img src="images/Logo/logo%20(3).png" alt="Innov Events" /></a><p>Des expériences à vivre,<br />des souvenirs à partager.</p><div class="footer-links"><a class="social-ico ico-tiktok" href="https://www.tiktok.com/@innov.events" target="_blank" rel="noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-2.9v13.1a2.6 2.6 0 1 1-2.1-2.6V9.5a5.7 5.7 0 1 0 5 5.7V8.9a6.6 6.6 0 0 0 3.9 1.3V7.2a3.7 3.7 0 0 1-3.9-3.6z"/></svg></a><a class="social-ico ico-instagram" href="https://www.instagram.com/innovevents_/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico-line"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.25"/></svg></a><a class="social-ico ico-facebook" href="https://www.facebook.com/Lezeroo/videos/team-innov-innovents-work-events-postday-stayfocus/1793542758506623/?mibextid=wwXIfr&amp;rdid=UzFeJXGl1KtKZana" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6a22 22 0 0 0-2.4-.12c-2.38 0-4 1.45-4 4.11V9.9H7.6V13h2.7v8z"/></svg></a><a class="social-ico ico-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=innovevents6%40gmail.com" aria-label="Écrire un e-mail avec Gmail">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="#4285f4" d="M3 7.2v10.3c0 .8.7 1.5 1.5 1.5H7V9.7z" />
+    <path fill="#34a853" d="M17 9.7v9.3h2.5c.8 0 1.5-.7 1.5-1.5V7.2z" />
+    <path fill="#fbbc04" d="M3 7.2 5.2 5.4 12 10.6l6.8-5.2L21 7.2v2.5l-9 6.8-9-6.8z" />
+    <path fill="#ea4335" d="M3 7.2V6.5c0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4L12 9.7l6.1-4.6c.3-.2.7-.4 1.1-.4 1 0 1.8.8 1.8 1.8v.7l-9 6.8z" />
+    <path fill="#c5221f" d="M3 9.7l4 3v6.3H4.5c-.8 0-1.5-.7-1.5-1.5z" />
+    <path fill="#188038" d="m21 9.7-4 3v6.3h2.5c.8 0 1.5-.7 1.5-1.5z" />
+  </svg>
+</a><a class="footer-phone" href="https://wa.me/237653139859">+237 653 13 98 59</a></div><small>© 2026 Innov Events. Tous droits réservés.</small></footer>
+    <script src="cms.js"></script>
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        const loginBlock = document.getElementById('admin-login');
+        const panelBlock = document.getElementById('admin-panel');
+        const listEl = document.getElementById('admin-list');
+        const editorBlock = document.getElementById('editor');
+        const editorTitle = document.getElementById('editor-title');
+        const form = document.getElementById('article-form');
+        const loginForm = document.getElementById('login-form');
+        const loginMsg = document.getElementById('login-msg');
+        const formMsg = document.getElementById('form-msg');
+
+        if (!isSupabaseConfigured()) {
+          document.querySelector('.admin-wrap').innerHTML = '<div class="blog-empty">L’administration n’est pas encore connectée à sa base de données. Renseigne <code>SUPABASE_URL</code> et <code>SUPABASE_ANON_KEY</code> dans <code>cms.js</code>.</div>';
+          return;
+        }
+        const sb = getSupabase();
+        let slugTouched = false;
+
+        async function refresh() {
+          const { data: { session } } = await sb.auth.getSession();
+          if (session) {
+            loginBlock.hidden = true;
+            panelBlock.hidden = false;
+            loadList();
+          } else {
+            loginBlock.hidden = false;
+            panelBlock.hidden = true;
+          }
+        }
+
+        loginForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          loginMsg.textContent = '';
+          loginMsg.className = 'admin-msg';
+          const email = document.getElementById('login-email').value.trim();
+          const password = document.getElementById('login-password').value;
+          const { error } = await sb.auth.signInWithPassword({ email, password });
+          if (error) {
+            loginMsg.textContent = 'Identifiants incorrects.';
+            loginMsg.className = 'admin-msg error';
+            return;
+          }
+          refresh();
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', async () => {
+          await sb.auth.signOut();
+          refresh();
+        });
+
+        async function loadList() {
+          listEl.innerHTML = '<p class="blog-empty">Chargement…</p>';
+          const { data, error } = await sb.from('articles').select('*').order('created_at', { ascending: false });
+          if (error) { listEl.innerHTML = '<p class="blog-empty">Erreur de chargement.</p>'; return; }
+          if (!data.length) { listEl.innerHTML = '<p class="blog-empty">Aucun article pour l’instant. Cliquez sur « + Nouvel article ».</p>'; return; }
+          listEl.innerHTML = data.map(a => `
+            <div class="admin-row">
+              <div>
+                <span class="status ${a.published ? 'live' : ''}">${a.published ? 'Publié' : 'Brouillon'}</span>
+                &nbsp; <strong>${escapeHtml(a.title)}</strong>
+              </div>
+              <div class="admin-row-actions">
+                <button type="button" data-edit="${a.id}">Modifier</button>
+                <button type="button" class="delete" data-delete="${a.id}">Supprimer</button>
+              </div>
+            </div>
+          `).join('');
+          listEl.querySelectorAll('[data-edit]').forEach(btn =>
+            btn.addEventListener('click', () => openEditor(data.find(a => a.id === btn.dataset.edit)))
+          );
+          listEl.querySelectorAll('[data-delete]').forEach(btn =>
+            btn.addEventListener('click', () => deleteArticle(btn.dataset.delete))
+          );
+        }
+
+        async function deleteArticle(id) {
+          if (!confirm('Supprimer définitivement cet article ?')) return;
+          const { error } = await sb.from('articles').delete().eq('id', id);
+          if (error) { alert('Erreur lors de la suppression.'); return; }
+          loadList();
+        }
+
+        function openEditor(article) {
+          form.reset();
+          formMsg.textContent = '';
+          document.getElementById('cover-preview').style.display = 'none';
+          document.getElementById('field-cover-url').value = '';
+          slugTouched = true; // en édition, on ne régénère jamais le slug automatiquement
+          if (article) {
+            editorTitle.textContent = 'Modifier l’article';
+            document.getElementById('field-id').value = article.id;
+            document.getElementById('field-title').value = article.title;
+            document.getElementById('field-slug').value = article.slug;
+            document.getElementById('field-excerpt').value = article.excerpt || '';
+            document.getElementById('field-content').value = article.content;
+            document.getElementById('field-published').checked = article.published;
+            document.getElementById('field-cover-url').value = article.cover_image || '';
+            if (article.cover_image) {
+              const img = document.getElementById('cover-preview');
+              img.src = article.cover_image;
+              img.style.display = 'block';
+            }
+          } else {
+            editorTitle.textContent = 'Nouvel article';
+            document.getElementById('field-id').value = '';
+            slugTouched = false;
+          }
+          editorBlock.hidden = false;
+          editorBlock.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('btn-new').addEventListener('click', () => openEditor(null));
+        document.getElementById('btn-cancel').addEventListener('click', () => { editorBlock.hidden = true; });
+
+        document.getElementById('field-title').addEventListener('input', (e) => {
+          if (!slugTouched) document.getElementById('field-slug').value = slugify(e.target.value);
+        });
+        document.getElementById('field-slug').addEventListener('input', () => { slugTouched = true; });
+
+        document.getElementById('field-cover-file').addEventListener('change', async (e) => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const coverMsg = document.getElementById('cover-msg');
+          coverMsg.textContent = 'Envoi en cours…';
+          coverMsg.className = 'admin-msg';
+          const path = `covers/${Date.now()}-${file.name.replace(/[^a-zA-Z0-9.\-]/g, '_')}`;
+          const { error } = await sb.storage.from('articles').upload(path, file, { upsert: true });
+          if (error) {
+            coverMsg.textContent = 'Échec de l’envoi. Vérifiez que le bucket "articles" existe et est public.';
+            coverMsg.className = 'admin-msg error';
+            return;
+          }
+          const { data } = sb.storage.from('articles').getPublicUrl(path);
+          document.getElementById('field-cover-url').value = data.publicUrl;
+          const img = document.getElementById('cover-preview');
+          img.src = data.publicUrl;
+          img.style.display = 'block';
+          coverMsg.textContent = 'Image envoyée.';
+          coverMsg.className = 'admin-msg ok';
+        });
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          formMsg.textContent = '';
+          const id = document.getElementById('field-id').value;
+          const payload = {
+            title: document.getElementById('field-title').value.trim(),
+            slug: slugify(document.getElementById('field-slug').value),
+            excerpt: document.getElementById('field-excerpt').value.trim(),
+            cover_image: document.getElementById('field-cover-url').value || null,
+            content: document.getElementById('field-content').value.trim(),
+            published: document.getElementById('field-published').checked,
+          };
+          const query = id
+            ? sb.from('articles').update(payload).eq('id', id)
+            : sb.from('articles').insert(payload);
+          const { error } = await query;
+          if (error) {
+            formMsg.textContent = error.message.includes('duplicate')
+              ? 'Cette adresse (slug) est déjà utilisée par un autre article.'
+              : 'Erreur lors de l’enregistrement.';
+            formMsg.className = 'admin-msg error';
+            return;
+          }
+          editorBlock.hidden = true;
+          loadList();
+        });
+
+        refresh();
+      })();
+    </script>
+  </body>
+</html>

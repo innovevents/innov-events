@@ -1,0 +1,267 @@
+/* ===== Page À propos ===== */
+
+/* Hero statique (image fixe au lieu de la vidéo d'accueil) */
+.hero-about {
+  min-height: 0;
+  height: auto;
+  padding-top: 82px;
+  background: #111
+    url("https://images.unsplash.com/photo-1479221039678-d5668fd06e39?auto=format&fit=crop&w=2400&q=85")
+    center/cover;
+}
+.hero-about .hero-shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.85) 0%,
+      rgba(0, 0, 0, 0.55) 45%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.05) 45%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+}
+.hero-about .hero-content {
+  padding: 11vh 8.5vw 9vh;
+  max-width: 960px;
+}
+.hero-about h1 {
+  font-size: clamp(36px, 4.6vw, 66px);
+}
+.hero-about .hero-bottom p {
+  max-width: 560px;
+  font-size: 15px;
+}
+
+/* Bloc "La différence" + colonne infos */
+.about-intro {
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 6vw;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 110px 7vw 40px;
+  align-items: start;
+}
+.about-card {
+  background: var(--surface);
+  padding: 46px 42px;
+  border-radius: 6px;
+  box-shadow: 0 18px 44px var(--card-shadow);
+}
+.about-card h2 {
+  font:
+    500 clamp(24px, 2vw, 30px)/1.15 Manrope,
+    sans-serif;
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.about-card p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0;
+}
+.about-info h3 {
+  font:
+    800 11px Manrope,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+.about-info p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  margin: 0 0 42px;
+}
+.about-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* "Ce que nous faisons" — 3 piliers */
+.about-pillars-label {
+  text-align: center;
+  padding: 60px 7vw 0;
+}
+.about-pillars-label span {
+  font:
+    800 11px Manrope,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+.about-pillars {
+  max-width: 1320px;
+  margin: 32px auto 0;
+  padding: 0 7vw 100px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+.about-pillars .project {
+  min-height: 300px;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+}
+.about-pillars .project-meta h3 {
+  font-size: 22px;
+}
+
+/* Module Histoire */
+.history-card {
+  max-width: 1320px;
+  margin: 0 auto 130px;
+  padding: 0 7vw;
+}
+.history-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #161616;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.history-image {
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(1) contrast(1.05);
+}
+.history-content {
+  padding: 60px 56px;
+  color: #f5f4ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.history-content .eyebrow {
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.history-content h3 {
+  font:
+    500 clamp(26px, 2.4vw, 36px)/1.1 Manrope,
+    sans-serif;
+  letter-spacing: -0.04em;
+  margin-bottom: 18px;
+}
+.history-content p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 430px;
+  margin: 0;
+}
+.history-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  margin-top: 44px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.history-tabs button {
+  background: transparent;
+  border: 0;
+  padding: 0 0 4px;
+  color: rgba(255, 255, 255, 0.5);
+  font:
+    700 12px Manrope,
+    sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.history-tabs button.active {
+  color: #fff;
+  border-bottom: 2px solid var(--accent);
+}
+.history-tabs button:hover {
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .hero-about .hero-content {
+    padding: 130px 7vw 60px;
+  }
+  .about-intro {
+    grid-template-columns: 1fr;
+    padding: 80px 7vw 20px;
+    gap: 46px;
+  }
+  .about-card {
+    padding: 34px 26px;
+  }
+  .about-pillars {
+    grid-template-columns: 1fr;
+    padding: 0 7vw 70px;
+  }
+  .about-pillars-label {
+    padding-top: 20px;
+  }
+  .history-card {
+    padding: 0 7vw;
+    margin-bottom: 80px;
+  }
+  .history-card-inner {
+    grid-template-columns: 1fr;
+  }
+  .history-image {
+    min-height: 240px;
+  }
+  .history-content {
+    padding: 40px 30px;
+  }
+}
+
+/* Tailles de texte augmentées */
+.hero-about .hero-bottom p {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 600px;
+}
+.about-card h2 {
+  font-size: clamp(26px, 2.2vw, 33px);
+}
+.about-card p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.about-info h3 {
+  font-size: 12px;
+}
+.about-info p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+.about-pillars-label span {
+  font-size: 13px;
+}
+.about-pillars .project-meta h3 {
+  font-size: 25px;
+  color: #fff;
+}
+.history-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 480px;
+}
+.history-tabs button {
+  font-size: 13px;
+}
+@media (max-width: 720px) {
+  .about-card p,
+  .about-info p,
+  .history-content p {
+    font-size: 15px;
+  }
+  .hero-about .hero-bottom p {
+    font-size: 15px;
+  }
+}

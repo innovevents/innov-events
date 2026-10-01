@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Innov Events — notre équipe, notre histoire et notre engagement au service de vos événements."
+    />
+    <title>À propos — Innov Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <link rel="stylesheet" href="a-propos.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Innov Events, accueil"
+        ><img src="images/Logo/logo%20(3).png" alt="Innov Events"
+      /></a>
+      <button
+        class="menu-toggle"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="a-propos.html">À propos</a>
+        <div class="nav-item has-mega">
+          <button type="button" class="nav-trigger" aria-expanded="false">
+            Événements
+            <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#marches"
+                ><span class="mega-ico"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15"
+                    /></svg></span
+                ><span>Marchés</span><span class="mega-arrow">→</span></a
+              >
+              <ul>
+                <li><a href="marche-tournees.html">Tournées</a></li>
+                <li><a href="marche-diffusion.html">Diffusion</a></li>
+                <li><a href="marche-corporate.html">Corporate</a></li>
+                <li><a href="marche-festivals.html">Festivals</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#solutions"
+                ><span class="mega-ico"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13 2 4 14h6l-1 8 9-12h-6z" /></svg></span
+                ><span>Solutions</span><span class="mega-arrow">→</span></a
+              >
+              <ul>
+                <li><a href="solution-audio.html">Audio</a></li>
+                <li><a href="solution-backline.html">Backline</a></li>
+                <li>
+                  <a href="solution-communications.html">Communications</a>
+                </li>
+                <li><a href="solution-data.html">Services data</a></li>
+                <li>
+                  <a href="solution-studios.html">Studios de répétition</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="product.html">Produit</a><a href="blog.html">Actualités</a
+        ><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-widget">
+          <button
+            type="button"
+            class="theme-trigger"
+            aria-label="Personnaliser l’apparence"
+            aria-controls="theme-panel"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path
+                d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"
+              />
+            </svg>
+          </button>
+          <div class="theme-panel" id="theme-panel">
+            <p class="theme-title">Apparence</p>
+            <div class="theme-options">
+              <button type="button" class="theme-option" data-mode="light">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4.2" />
+                  <path
+                    d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"
+                  /></svg
+                >Clair
+              </button>
+              <button type="button" class="theme-option" data-mode="dark">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" /></svg
+                >Sombre
+              </button>
+              <button type="button" class="theme-option" data-mode="system">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4.5" width="18" height="12.5" rx="2" />
+                  <path d="M8.5 21h7M12 17v4" /></svg
+                >Système
+              </button>
+            </div>
+            <p class="theme-title">Couleur d’accent</p>
+            <div class="theme-swatches">
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="red"
+                style="--sw: #f51e28"
+                aria-label="Rouge signature"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="blue"
+                style="--sw: #2f6fea"
+                aria-label="Bleu"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="green"
+                style="--sw: #1f9d55"
+                aria-label="Vert"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="amber"
+                style="--sw: #e8951c"
+                aria-label="Ambre"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="violet"
+                style="--sw: #7c5cff"
+                aria-label="Violet"
+              ></button>
+            </div>
+            <div class="theme-custom">
+              <div class="theme-custom-row">
+                <span>Couleur personnalisée</span>
+                <input
+                  type="color"
+                  id="theme-custom-color"
+                  value="#f51e28"
+                  aria-label="Choisir une couleur d’accent personnalisée"
+                />
+              </div>
+              <button type="button" class="theme-reset" id="theme-reset">
+                Réinitialiser
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="search-trigger"
+          type="button"
+          aria-label="Rechercher"
+          aria-controls="search-panel"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="5.8"></circle>
+            <path d="m16 16 4.2 4.2"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="search-panel" id="search-panel" hidden>
+      <div>
+        <p class="eyebrow"><span></span> Recherche</p>
+        <button class="search-close" aria-label="Fermer la recherche">×</button
+        ><label for="site-search">Que cherchez-vous ?</label
+        ><input
+          id="site-search"
+          type="search"
+          placeholder="Ex. sonorisation, écran LED…"
+          autocomplete="off"
+        />
+        <div class="search-results" id="search-results"></div>
+        <p class="search-hint">
+          Appuyez sur Échap pour fermer, Entrée pour ouvrir le premier résultat.
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero hero-about">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow light"><span></span> Notre ADN</p>
+          <h1>Des artisans de l’événementiel<br />et des technologies live</h1>
+          <div class="hero-bottom">
+            <p>
+              Depuis Douala, notre équipe conçoit, installe et pilote des
+              dispositifs techniques et créatifs pour des événements qui
+              marquent durablement leur public.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-intro">
+        <div class="about-card">
+          <h2>La différence Innov Events</h2>
+          <p>
+            Un événement réussi repose avant tout sur des personnes engagées.
+            Notre équipe technique et créative est au cœur de chaque projet :
+            elle apporte son savoir-faire, sa capacité à résoudre les imprévus
+            et une exigence constante pour le résultat final. Chez Innov Events,
+            chaque prestation est pensée comme si c’était la nôtre. En nous
+            choisissant, vous faites appel à une équipe de professionnels
+            passionnés, qui va au-delà du cahier des charges pour livrer une
+            expérience dont on se souvient.
+          </p>
+        </div>
+        <div class="about-info">
+          <h3>Qui est Innov Events ?</h3>
+          <p>
+            Nous nous considérons comme une extension de votre équipe
+            organisatrice. Nos techniciens et chefs de projet travaillent à vos
+            côtés, du premier brief jusqu’au démontage, en mettant notre
+            expertise technique et notre sens du détail au service de votre
+            vision. Notre exigence de service ne s’arrête jamais au minimum :
+            elle se mesure à la satisfaction de votre public.
+          </p>
+          <h3>Nos ambitions</h3>
+          <p>
+            Le champ des possibles en matière de scénographie, de son et d’image
+            ne cesse de s’élargir, et nous suivons ce mouvement de près. Notre
+            objectif est simple : faire avancer les standards de l’événementiel
+            au Cameroun par la créativité et la rigueur technique, et rester le
+            partenaire vers lequel on se tourne pour les projets les plus
+            exigeants.
+          </p>
+        </div>
+      </section>
+
+      <div class="about-pillars-label"><span>Ce que nous faisons</span></div>
+      <div class="about-pillars">
+        <a class="project" href="index.html#expertise">
+          <img
+            src="images/membres%20du%20personnel/A%20(21).png"
+            alt="Événements Innov Events"
+          />
+          <div class="project-meta"><h3>Événements</h3></div>
+        </a>
+        <a class="project" href="index.html#expertise">
+          <img
+            src="https://images.unsplash.com/photo-1599739291127-15c456e459ee?auto=format&fit=crop&w=900&q=85"
+            alt="Solutions techniques Innov Events"
+          />
+          <div class="project-meta"><h3>Solutions</h3></div>
+        </a>
+        <a class="project" href="index.html#expertise">
+          <img
+            src="https://images.unsplash.com/photo-1502665607786-eaa3cd100809?auto=format&fit=crop&w=900&q=85"
+            alt="Production Innov Events"
+          />
+          <div class="project-meta"><h3>Production</h3></div>
+        </a>
+      </div>
+
+      <div class="history-card">
+        <div class="history-card-inner">
+          <div
+            class="history-image"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1525022404438-91321710652d?auto=format&fit=crop&w=1200&q=85&quot;);
+            "
+          ></div>
+          <div class="history-content">
+            <div class="card-head">
+              <p class="eyebrow"><span></span> Histoire d’Innov Events</p>
+              <div class="card-arrows">
+                <button
+                  type="button"
+                  class="arrow-btn"
+                  data-dir="-1"
+                  aria-label="Étape précédente"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m14 6-6 6 6 6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="arrow-btn"
+                  data-dir="1"
+                  aria-label="Étape suivante"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m10 6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <h3 id="history-title">
+              Une aventure locale, une ambition régionale
+            </h3>
+            <p id="history-text">
+              Innov Events est née à Douala d’une conviction simple : les
+              événements méritent une exécution technique irréprochable autant
+              qu’une direction créative forte. De prestation en prestation,
+              l’équipe s’est étoffée et l’expertise s’est élargie, du son à
+              l’image en passant par la scénographie.
+            </p>
+            <div
+              class="history-tabs"
+              role="tablist"
+              aria-label="Étapes de notre histoire"
+            >
+              <button
+                type="button"
+                class="active"
+                data-title="Une aventure locale, une ambition régionale"
+                data-text="Innov Events est née à Douala d’une conviction simple : les événements méritent une exécution technique irréprochable autant qu’une direction créative forte. De prestation en prestation, l’équipe s’est étoffée et l’expertise s’est élargie, du son à l’image en passant par la scénographie."
+                data-image="https://images.unsplash.com/photo-1525022404438-91321710652d?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Les débuts
+              </button>
+              <button
+                type="button"
+                data-title="Une expertise qui s’élargit"
+                data-text="Sonorisation, éclairage, écrans LED, régie vidéo : au fil des projets, nous avons intégré de nouveaux savoir-faire pour proposer une offre technique complète, adaptée à des formats toujours plus exigeants."
+                data-image="https://images.unsplash.com/photo-1745847768404-4303495b1116?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Expertise
+              </button>
+              <button
+                type="button"
+                data-title="Aujourd’hui"
+                data-text="Innov Events accompagne aujourd’hui des marques, institutions et organisateurs privés sur des événements corporate, culturels et grand public, avec une même exigence : un rendu fluide, spectaculaire et juste."
+                data-image="images/membres%20du%20personnel/A%20(21).png"
+              >
+                Aujourd’hui
+              </button>
+              <button
+                type="button"
+                data-title="Demain"
+                data-text="Nous continuons d’investir dans de nouveaux équipements et de nouvelles compétences pour rester le partenaire de référence des expériences événementielles au Cameroun et dans la sous-région."
+                data-image="https://images.unsplash.com/photo-1599739291127-15c456e459ee?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Demain
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="contact" id="cta">
+        <div
+          class="contact-image"
+          style="
+            background-image: url(&quot;https://images.unsplash.com/photo-1760092189954-5b2f6eb3ca88?auto=format&fit=crop&w=2100&q=85&quot;);
+          "
+        ></div>
+        <div class="contact-shade"></div>
+        <div class="contact-content">
+          <p class="eyebrow light"><span></span> Un projet en tête ?</p>
+          <h2>Que peut <em>Innov Events</em><br />réaliser pour vous ?</h2>
+          <p>
+            Associez-vous à notre équipe et profitez de notre expertise
+            technique, de notre créativité et de notre sens du service pour
+            donner de l’ampleur à votre prochain événement.
+          </p>
+          <a class="contact-cta" href="https://wa.me/237653139859"
+            >Contactez Innov Events <span>↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="index.html"
+        ><img src="images/Logo/logo%20(3).png" alt="Innov Events"
+      /></a>
+      <p>Des expériences à vivre,<br />des souvenirs à partager.</p>
+      <div class="footer-links">
+        <a
+          class="social-ico ico-tiktok"
+          href="https://www.tiktok.com/@innov.events"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="TikTok"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M16.5 2h-2.9v13.1a2.6 2.6 0 1 1-2.1-2.6V9.5a5.7 5.7 0 1 0 5 5.7V8.9a6.6 6.6 0 0 0 3.9 1.3V7.2a3.7 3.7 0 0 1-3.9-3.6z"
+            /></svg></a
+        ><a
+          class="social-ico ico-instagram"
+          href="https://www.instagram.com/innovevents_/"
+          aria-label="Instagram"
+          ><svg viewBox="0 0 24 24" aria-hidden="true" class="ico-line">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
+            <circle cx="12" cy="12" r="4.1" />
+            <circle cx="17.2" cy="6.8" r="1.25" /></svg></a
+        ><a
+          class="social-ico ico-facebook"
+          href="https://www.facebook.com/Lezeroo/videos/team-innov-innovents-work-events-postday-stayfocus/1793542758506623/?mibextid=wwXIfr&amp;rdid=UzFeJXGl1KtKZana"
+          aria-label="Facebook"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6a22 22 0 0 0-2.4-.12c-2.38 0-4 1.45-4 4.11V9.9H7.6V13h2.7v8z"
+            /></svg></a
+        ><a
+          class="social-ico ico-gmail"
+          href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=innovevents6%40gmail.com"
+          aria-label="Écrire un e-mail avec Gmail"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285f4" d="M3 7.2v10.3c0 .8.7 1.5 1.5 1.5H7V9.7z" />
+            <path fill="#34a853" d="M17 9.7v9.3h2.5c.8 0 1.5-.7 1.5-1.5V7.2z" />
+            <path
+              fill="#fbbc04"
+              d="M3 7.2 5.2 5.4 12 10.6l6.8-5.2L21 7.2v2.5l-9 6.8-9-6.8z"
+            />
+            <path
+              fill="#ea4335"
+              d="M3 7.2V6.5c0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4L12 9.7l6.1-4.6c.3-.2.7-.4 1.1-.4 1 0 1.8.8 1.8 1.8v.7l-9 6.8z"
+            />
+            <path fill="#c5221f" d="M3 9.7l4 3v6.3H4.5c-.8 0-1.5-.7-1.5-1.5z" />
+            <path fill="#188038" d="m21 9.7-4 3v6.3h2.5c.8 0 1.5-.7 1.5-1.5z" />
+          </svg> </a
+        ><a class="footer-phone" href="https://wa.me/237653139859"
+          >+237 653 13 98 59</a
+        >
+      </div>
+      <small>© 2026 Innov Events. Tous droits réservés.</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Le parc matériel Innov Events — sonorisation, lumière et vidéo au service de vos événements à Douala."
+    />
+    <title>Produit — Innov Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <link rel="stylesheet" href="product.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Innov Events, accueil"
+        ><img src="images/Logo/logo%20(3).png" alt="Innov Events"
+      /></a>
+      <button
+        class="menu-toggle"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span>
+      </button>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="a-propos.html">À propos</a>
+        <div class="nav-item has-mega">
+          <button type="button" class="nav-trigger" aria-expanded="false">
+            Événements
+            <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#marches"
+                ><span class="mega-ico"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15"
+                    /></svg></span
+                ><span>Marchés</span><span class="mega-arrow">→</span></a
+              >
+              <ul>
+                <li><a href="marche-tournees.html">Tournées</a></li>
+                <li><a href="marche-diffusion.html">Diffusion</a></li>
+                <li><a href="marche-corporate.html">Corporate</a></li>
+                <li><a href="marche-festivals.html">Festivals</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#solutions"
+                ><span class="mega-ico"
+                  ><svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M13 2 4 14h6l-1 8 9-12h-6z" /></svg></span
+                ><span>Solutions</span><span class="mega-arrow">→</span></a
+              >
+              <ul>
+                <li><a href="solution-audio.html">Audio</a></li>
+                <li><a href="solution-backline.html">Backline</a></li>
+                <li>
+                  <a href="solution-communications.html">Communications</a>
+                </li>
+                <li><a href="solution-data.html">Services data</a></li>
+                <li>
+                  <a href="solution-studios.html">Studios de répétition</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="product.html">Produit</a><a href="blog.html">Actualités</a
+        ><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-widget">
+          <button
+            type="button"
+            class="theme-trigger"
+            aria-label="Personnaliser l’apparence"
+            aria-controls="theme-panel"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4.2" />
+              <path
+                d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"
+              />
+            </svg>
+          </button>
+          <div class="theme-panel" id="theme-panel">
+            <p class="theme-title">Apparence</p>
+            <div class="theme-options">
+              <button type="button" class="theme-option" data-mode="light">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <circle cx="12" cy="12" r="4.2" />
+                  <path
+                    d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"
+                  /></svg
+                >Clair
+              </button>
+              <button type="button" class="theme-option" data-mode="dark">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z" /></svg
+                >Sombre
+              </button>
+              <button type="button" class="theme-option" data-mode="system">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="4.5" width="18" height="12.5" rx="2" />
+                  <path d="M8.5 21h7M12 17v4" /></svg
+                >Système
+              </button>
+            </div>
+            <p class="theme-title">Couleur d’accent</p>
+            <div class="theme-swatches">
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="red"
+                style="--sw: #f51e28"
+                aria-label="Rouge signature"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="blue"
+                style="--sw: #2f6fea"
+                aria-label="Bleu"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="green"
+                style="--sw: #1f9d55"
+                aria-label="Vert"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="amber"
+                style="--sw: #e8951c"
+                aria-label="Ambre"
+              ></button>
+              <button
+                type="button"
+                class="theme-swatch"
+                data-accent="violet"
+                style="--sw: #7c5cff"
+                aria-label="Violet"
+              ></button>
+            </div>
+            <div class="theme-custom">
+              <div class="theme-custom-row">
+                <span>Couleur personnalisée</span>
+                <input
+                  type="color"
+                  id="theme-custom-color"
+                  value="#f51e28"
+                  aria-label="Choisir une couleur d’accent personnalisée"
+                />
+              </div>
+              <button type="button" class="theme-reset" id="theme-reset">
+                Réinitialiser
+              </button>
+            </div>
+          </div>
+        </div>
+        <button
+          class="search-trigger"
+          type="button"
+          aria-label="Rechercher"
+          aria-controls="search-panel"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="10.8" cy="10.8" r="5.8"></circle>
+            <path d="m16 16 4.2 4.2"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="search-panel" id="search-panel" hidden>
+      <div>
+        <p class="eyebrow"><span></span> Recherche</p>
+        <button class="search-close" aria-label="Fermer la recherche">×</button
+        ><label for="site-search">Que cherchez-vous ?</label
+        ><input
+          id="site-search"
+          type="search"
+          placeholder="Ex. sonorisation, écran LED…"
+          autocomplete="off"
+        />
+        <div class="search-results" id="search-results"></div>
+        <p class="search-hint">
+          Appuyez sur Échap pour fermer, Entrée pour ouvrir le premier résultat.
+        </p>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero hero-produit">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow light"><span></span> Produit</p>
+          <h1>Matériel, puissance<br />et précision</h1>
+          <div class="hero-bottom">
+            <p>
+              Un parc technique entretenu et régulièrement renouvelé pour
+              garantir un rendu fiable, quelle que soit l’ampleur de
+              l’événement.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="product-lead">
+        <p>
+          Chez Innov Events, notre équipe technique choisit, entretient et
+          déploie un matériel de sonorisation, d’éclairage et de vidéo pensé
+          pour tenir la distance : robuste sur le terrain, fiable devant le
+          public, simple à intégrer à n’importe quel lieu.
+        </p>
+      </section>
+
+      <div class="feature-grid">
+        <article class="feature-item">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1768145238087-a74199942c7f?auto=format&fit=crop&w=900&q=85"
+              alt="Parc matériel Innov Events"
+            />
+          </figure>
+          <h2>Parc matériel &amp; logistique</h2>
+          <p>
+            Nos équipes veillent à la fiabilité et à la sécurité de chaque pièce
+            d’équipement, du transport au démontage, pour un déploiement sans
+            accroc sur chaque événement, quel que soit le lieu.
+          </p>
+          <a class="feature-cta" href="contact.html"
+            >En savoir plus sur notre parc</a
+          >
+        </article>
+        <article class="feature-item">
+          <figure>
+            <img
+              src="https://images.unsplash.com/photo-1479221039678-d5668fd06e39?auto=format&fit=crop&w=900&q=85"
+              alt="Solutions son et diffusion Innov Events"
+            />
+          </figure>
+          <h2>Solutions son &amp; diffusion</h2>
+          <p>
+            Nos systèmes de sonorisation sont calibrés pour chaque salle et
+            chaque plein air : une diffusion homogène, un son constant à chaque
+            place, pour un public toujours bien servi.
+          </p>
+          <a class="feature-cta" href="contact.html"
+            >En savoir plus sur nos solutions</a
+          >
+        </article>
+      </div>
+
+      <section class="motive-section">
+        <p class="motive-label">Ce qui nous motive</p>
+        <div class="motive-grid">
+          <div class="motive-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M8 11V6a2 2 0 0 1 4 0v4M12 10V5a2 2 0 0 1 4 0v5M16 11V7a2 2 0 0 1 4 0v7a6 6 0 0 1-6 6H12a6 6 0 0 1-5-2.7L4 13c-.6-.9.4-2 1.4-1.5L8 13"
+              />
+            </svg>
+            <h3>L’instant</h3>
+            <p>
+              Nous savons ce qu’une salle ressent quand tout fonctionne. C’est
+              cette présence-là que nous cherchons à offrir à chaque événement,
+              sans compromis.
+            </p>
+          </div>
+          <div class="motive-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m5 6 6 6-6 6M13 6l6 6-6 6"
+              />
+            </svg>
+            <h3>Efficacité</h3>
+            <p>
+              Notre proximité avec les équipes qui déploient et exploitent le
+              matériel nourrit une exigence constante : simplicité
+              d’installation, poids, encombrement, flux de travail.
+            </p>
+          </div>
+          <div class="motive-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 3 4 6v6c0 4.5 3.4 7.7 8 9 4.6-1.3 8-4.5 8-9V6z"
+              />
+            </svg>
+            <h3>Contrôle</h3>
+            <p>
+              Un calibrage audio rigoureux garantit une réponse en fréquence
+              constante sur l’ensemble du lieu, pour que chaque spectateur
+              profite de la même qualité sonore.
+            </p>
+          </div>
+          <div class="motive-item">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="3" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m8 12 3 3 5-6"
+              />
+            </svg>
+            <h3>Fiabilité</h3>
+            <p>
+              Résister aux épreuves de la route, du terrain et de l’usage
+              intensif est une exigence non négociable. Chaque équipement doit
+              tenir, à chaque sortie.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="expertise-card">
+        <div class="expertise-card-inner">
+          <div
+            class="expertise-image"
+            style="
+              background-image: url(&quot;https://images.unsplash.com/photo-1502665607786-eaa3cd100809?auto=format&fit=crop&w=1200&q=85&quot;);
+            "
+          ></div>
+          <div class="expertise-content">
+            <div class="card-head">
+              <p class="eyebrow"><span></span> Domaines d’expertise</p>
+              <div class="card-arrows">
+                <button
+                  type="button"
+                  class="arrow-btn"
+                  data-dir="-1"
+                  aria-label="Domaine précédent"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m14 6-6 6 6 6" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="arrow-btn"
+                  data-dir="1"
+                  aria-label="Domaine suivant"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m10 6 6 6-6 6" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <h3 id="expertise-title">Sonorisation</h3>
+            <p id="expertise-text">
+              Systèmes line-array, retours de scène et diffusion façade : nous
+              dimensionnons la solution audio adaptée à votre lieu et à votre
+              audience.
+            </p>
+            <div
+              class="expertise-tabs"
+              role="tablist"
+              aria-label="Domaines d’expertise"
+            >
+              <button
+                type="button"
+                class="active"
+                data-title="Sonorisation"
+                data-text="Systèmes line-array, retours de scène et diffusion façade : nous dimensionnons la solution audio adaptée à votre lieu et à votre audience."
+                data-image="https://images.unsplash.com/photo-1502665607786-eaa3cd100809?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Sonorisation
+              </button>
+              <button
+                type="button"
+                data-title="Éclairage"
+                data-text="Projecteurs asservis, éclairage architectural et effets scéniques : la lumière construit l’ambiance et guide le regard tout au long de l’événement."
+                data-image="https://images.unsplash.com/photo-1599739291127-15c456e459ee?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Éclairage
+              </button>
+              <button
+                type="button"
+                data-title="Vidéo &amp; LED"
+                data-text="Murs LED, régie vidéo et projection : nous intégrons l’image comme un élément central de la scénographie, pas comme un simple écran."
+                data-image="images/membres%20du%20personnel/A%20(21).png"
+              >
+                Vidéo &amp; LED
+              </button>
+              <button
+                type="button"
+                data-title="Structures scéniques"
+                data-text="Trusses, gradins et plateaux techniques : nos structures sont dimensionnées et installées dans le respect strict des normes de sécurité."
+                data-image="https://images.unsplash.com/photo-1677497533660-adca109c2f71?auto=format&amp;fit=crop&amp;w=1200&amp;q=85"
+              >
+                Structures
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="contact product-closing" id="cta">
+        <div
+          class="contact-image"
+          style="
+            background-image: url(&quot;images/membres%20du%20personnel/A%20(21).png&quot;);
+          "
+        ></div>
+        <div class="contact-shade"></div>
+        <div class="contact-content">
+          <p class="eyebrow light">
+            <span></span> Votre projet mérite le bon matériel
+          </p>
+          <h2>Offrez un son<br /><em>de classe mondiale</em></h2>
+          <p>
+            Des salles de spectacle aux grands rassemblements en plein air,
+            notre parc technique s’adapte à vos besoins audio, lumière et vidéo.
+          </p>
+          <a class="contact-cta" href="contact.html"
+            >Contactez Innov Events <span>↗</span></a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="index.html"
+        ><img src="images/Logo/logo%20(3).png" alt="Innov Events"
+      /></a>
+      <p>Des expériences à vivre,<br />des souvenirs à partager.</p>
+      <div class="footer-links">
+        <a
+          class="social-ico ico-tiktok"
+          href="https://www.tiktok.com/@innov.events"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="TikTok"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M16.5 2h-2.9v13.1a2.6 2.6 0 1 1-2.1-2.6V9.5a5.7 5.7 0 1 0 5 5.7V8.9a6.6 6.6 0 0 0 3.9 1.3V7.2a3.7 3.7 0 0 1-3.9-3.6z"
+            /></svg></a
+        ><a
+          class="social-ico ico-instagram"
+          href="https://www.instagram.com/innovevents_/"
+          aria-label="Instagram"
+          ><svg viewBox="0 0 24 24" aria-hidden="true" class="ico-line">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" />
+            <circle cx="12" cy="12" r="4.1" />
+            <circle cx="17.2" cy="6.8" r="1.25" /></svg></a
+        ><a
+          class="social-ico ico-facebook"
+          href="https://www.facebook.com/Lezeroo/videos/team-innov-innovents-work-events-postday-stayfocus/1793542758506623/?mibextid=wwXIfr&amp;rdid=UzFeJXGl1KtKZana"
+          aria-label="Facebook"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6a22 22 0 0 0-2.4-.12c-2.38 0-4 1.45-4 4.11V9.9H7.6V13h2.7v8z"
+            /></svg></a
+        ><a
+          class="social-ico ico-gmail"
+          href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=innovevents6%40gmail.com"
+          aria-label="Écrire un e-mail avec Gmail"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="#4285f4" d="M3 7.2v10.3c0 .8.7 1.5 1.5 1.5H7V9.7z" />
+            <path fill="#34a853" d="M17 9.7v9.3h2.5c.8 0 1.5-.7 1.5-1.5V7.2z" />
+            <path
+              fill="#fbbc04"
+              d="M3 7.2 5.2 5.4 12 10.6l6.8-5.2L21 7.2v2.5l-9 6.8-9-6.8z"
+            />
+            <path
+              fill="#ea4335"
+              d="M3 7.2V6.5c0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4L12 9.7l6.1-4.6c.3-.2.7-.4 1.1-.4 1 0 1.8.8 1.8 1.8v.7l-9 6.8z"
+            />
+            <path fill="#c5221f" d="M3 9.7l4 3v6.3H4.5c-.8 0-1.5-.7-1.5-1.5z" />
+            <path fill="#188038" d="m21 9.7-4 3v6.3h2.5c.8 0 1.5-.7 1.5-1.5z" />
+          </svg> </a
+        ><a class="footer-phone" href="https://wa.me/237653139859"
+          >+237 653 13 98 59</a
+        >
+      </div>
+      <small>© 2026 Innov Events. Tous droits réservés.</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

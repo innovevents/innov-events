@@ -1,0 +1,233 @@
+/* ===== Page hub Événements (Marchés / Solutions) ===== */
+
+.hero-events {
+  min-height: 0;
+  height: auto;
+  padding-top: 82px;
+  background: #111 url("images/membres%20du%20personnel/A%20(21).png")
+    center/cover;
+}
+.hero-events .hero-shade {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.87) 0%,
+      rgba(0, 0, 0, 0.55) 48%,
+      rgba(0, 0, 0, 0.25) 100%
+    ),
+    linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.5) 0%,
+      rgba(0, 0, 0, 0.05) 45%,
+      rgba(0, 0, 0, 0.2) 100%
+    );
+}
+.hero-events .hero-content {
+  padding: 11vh 8.5vw 9vh;
+  max-width: 900px;
+}
+.hero-events h1 {
+  font-size: clamp(36px, 4.6vw, 64px);
+}
+.hero-events .hero-bottom p {
+  font-size: 17px;
+  line-height: 1.6;
+  max-width: 520px;
+}
+
+.events-intro {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 96px 7vw 10px;
+  text-align: center;
+}
+.events-intro h2 {
+  font:
+    500 clamp(26px, 2.4vw, 34px)/1.2 Manrope,
+    sans-serif;
+  letter-spacing: -0.03em;
+  margin: 0 0 20px;
+}
+.events-intro p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.section-label {
+  text-align: center;
+  font:
+    800 13px Manrope,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin: 70px 0 34px;
+}
+
+.markets-grid {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 7vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.markets-grid .project {
+  min-height: 280px;
+  border-radius: 5px;
+  display: block;
+  text-decoration: none;
+}
+.markets-grid .project-meta p {
+  color: rgba(255, 255, 255, 0.7);
+}
+.markets-grid .project-meta h3 {
+  font-size: 21px;
+}
+
+.solutions-wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 7vw 110px;
+}
+.solutions-wrap .services {
+  margin-top: 0;
+}
+.solutions-wrap .service h3 {
+  font-size: clamp(21px, 2vw, 27px);
+}
+.solutions-wrap .service p {
+  max-width: 560px;
+}
+
+/* Carrousel Solutions (image + panneau sombre + onglets) */
+.solutions-card {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 7vw 110px;
+}
+.solutions-card-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #161616;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.solutions-image {
+  min-height: 460px;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.3s ease;
+}
+.solutions-content {
+  padding: 60px 56px;
+  color: #f5f4ef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.solutions-content .eyebrow {
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.solutions-content h3 {
+  font:
+    500 clamp(28px, 2.6vw, 40px)/1.1 Manrope,
+    sans-serif;
+  letter-spacing: -0.04em;
+  margin: 0 0 18px;
+}
+.solutions-content p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 460px;
+  margin: 0 0 30px;
+}
+.solutions-cta {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font:
+    700 12px Manrope,
+    sans-serif;
+  letter-spacing: 0.03em;
+  padding: 12px 22px;
+  border-radius: 6px;
+  transition: background 0.2s ease;
+}
+.solutions-cta:hover {
+  background: #bb111a;
+}
+.solutions-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin-top: 44px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+.solutions-tabs button {
+  background: transparent;
+  border: 0;
+  padding: 0 0 4px;
+  color: rgba(255, 255, 255, 0.5);
+  font:
+    700 13px Manrope,
+    sans-serif;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+.solutions-tabs button.active {
+  color: #fff;
+  border-bottom: 2px solid var(--accent);
+}
+.solutions-tabs button:hover {
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .hero-events .hero-content {
+    padding: 130px 7vw 60px;
+  }
+  .events-intro {
+    padding: 74px 7vw 4px;
+    text-align: left;
+  }
+  .section-label {
+    margin: 50px 0 24px;
+  }
+  .markets-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .markets-grid .project {
+    min-height: 190px;
+  }
+  .solutions-wrap {
+    padding: 0 7vw 74px;
+  }
+  .solutions-wrap .service {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .solutions-wrap .service > a {
+    text-align: left;
+  }
+  .solutions-card {
+    padding: 0 7vw 74px;
+  }
+  .solutions-card-inner {
+    grid-template-columns: 1fr;
+  }
+  .solutions-image {
+    min-height: 240px;
+  }
+  .solutions-content {
+    padding: 40px 30px;
+  }
+}

@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contactez Innov Events — agence événementielle et technique à Douala, Cameroun." />
+    <title>Contact — Innov Events</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="overrides.css" />
+    <link rel="stylesheet" href="contact.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header" id="top">
+      <a class="brand" href="index.html" aria-label="Innov Events, accueil"><img src="images/Logo/logo%20(3).png" alt="Innov Events" /></a>
+      <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span></button>
+      <nav class="nav" aria-label="Navigation principale">
+        <a href="a-propos.html">À propos</a>
+        <div class="nav-item has-mega">
+          <button type="button" class="nav-trigger" aria-expanded="false">Événements <svg class="nav-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+          <div class="mega-menu">
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#marches"><span class="mega-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M2 12h20M4.5 4.5l15 15M19.5 4.5l-15 15"/></svg></span><span>Marchés</span><span class="mega-arrow">→</span></a>
+              <ul>
+                <li><a href="marche-tournees.html">Tournées</a></li>
+                <li><a href="marche-diffusion.html">Diffusion</a></li>
+                <li><a href="marche-corporate.html">Corporate</a></li>
+                <li><a href="marche-festivals.html">Festivals</a></li>
+              </ul>
+            </div>
+            <div class="mega-col">
+              <a class="mega-col-head" href="evenements.html#solutions"><span class="mega-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></span><span>Solutions</span><span class="mega-arrow">→</span></a>
+              <ul>
+                <li><a href="solution-audio.html">Audio</a></li>
+                <li><a href="solution-backline.html">Backline</a></li>
+                <li><a href="solution-communications.html">Communications</a></li>
+                <li><a href="solution-data.html">Services data</a></li>
+                <li><a href="solution-studios.html">Studios de répétition</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <a href="product.html">Produit</a><a href="blog.html">Actualités</a><a href="contact.html">Contact</a>
+      </nav>
+      <div class="header-actions">
+        <div class="theme-widget">
+          <button type="button" class="theme-trigger" aria-label="Personnaliser l’apparence" aria-controls="theme-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"/></svg></button>
+          <div class="theme-panel" id="theme-panel">
+            <p class="theme-title">Apparence</p>
+            <div class="theme-options">
+              <button type="button" class="theme-option" data-mode="light"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.2 4.2l1.85 1.85M17.95 17.95l1.85 1.85M2.5 12h2.6M18.9 12h2.6M4.2 19.8l1.85-1.85M17.95 6.05l1.85-1.85"/></svg>Clair</button>
+              <button type="button" class="theme-option" data-mode="dark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"/></svg>Sombre</button>
+              <button type="button" class="theme-option" data-mode="system"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="12.5" rx="2"/><path d="M8.5 21h7M12 17v4"/></svg>Système</button>
+            </div>
+            <p class="theme-title">Couleur d’accent</p>
+            <div class="theme-swatches">
+              <button type="button" class="theme-swatch" data-accent="red" style="--sw:#f51e28" aria-label="Rouge signature"></button>
+              <button type="button" class="theme-swatch" data-accent="blue" style="--sw:#2f6fea" aria-label="Bleu"></button>
+              <button type="button" class="theme-swatch" data-accent="green" style="--sw:#1f9d55" aria-label="Vert"></button>
+              <button type="button" class="theme-swatch" data-accent="amber" style="--sw:#e8951c" aria-label="Ambre"></button>
+              <button type="button" class="theme-swatch" data-accent="violet" style="--sw:#7c5cff" aria-label="Violet"></button>
+            </div>
+            <div class="theme-custom">
+              <div class="theme-custom-row">
+                <span>Couleur personnalisée</span>
+                <input type="color" id="theme-custom-color" value="#f51e28" aria-label="Choisir une couleur d’accent personnalisée" />
+              </div>
+              <button type="button" class="theme-reset" id="theme-reset">Réinitialiser</button>
+            </div>
+          </div>
+        </div>
+        <button class="search-trigger" type="button" aria-label="Rechercher" aria-controls="search-panel" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="5.8"></circle><path d="m16 16 4.2 4.2"></path></svg></button>
+      </div>
+    </header>
+    <div class="search-panel" id="search-panel" hidden><div><p class="eyebrow"><span></span> Recherche</p><button class="search-close" aria-label="Fermer la recherche">×</button><label for="site-search">Que cherchez-vous ?</label><input id="site-search" type="search" placeholder="Ex. sonorisation, écran LED…" autocomplete="off" /><div class="search-results" id="search-results"></div><p class="search-hint">Appuyez sur Échap pour fermer, Entrée pour ouvrir le premier résultat.</p></div></div>
+
+    <main>
+      <section class="hero hero-contact">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow light"><span></span> Contactez Innov Events</p>
+          <h1>À votre service,<br />où que vous soyez</h1>
+          <div class="hero-bottom"><p>Une question, un appel d’offres ou un projet à cadrer ? Notre équipe vous répond rapidement.</p></div>
+        </div>
+      </section>
+
+      <section class="contact-intro">
+        <h2>Comment pouvons-nous vous aider ?</h2>
+        <p>Remplissez le formulaire ci-dessous ou joignez-nous directement au <a href="https://wa.me/237653139859">+237 653 13 98 59</a>.</p>
+      </section>
+
+      <div class="contact-form-wrap">
+        <div class="contact-form-card">
+          <header><h3>Demande générale</h3></header>
+          <form class="contact-form" id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="cf-name">Nom <span class="req">*</span></label>
+                <input id="cf-name" name="nom" type="text" placeholder="Votre nom" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email <span class="req">*</span></label>
+                <input id="cf-email" name="email" type="email" placeholder="Adresse e-mail" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-phone">Numéro de téléphone <span class="req">*</span></label>
+                <input id="cf-phone" name="telephone" type="tel" placeholder="Numéro de téléphone" required />
+              </div>
+              <div class="form-field">
+                <label for="cf-org">Entreprise / Organisation</label>
+                <input id="cf-org" name="organisation" type="text" placeholder="Entreprise / Organisation" />
+              </div>
+              <div class="form-field full">
+                <label for="cf-message">Votre projet <span class="req">*</span></label>
+                <textarea id="cf-message" name="message" placeholder="Décrivez votre événement : type, date, lieu, besoins techniques…" required></textarea>
+              </div>
+              <div class="form-field full">
+                <label for="cf-source">Comment avez-vous entendu parler de nous ?</label>
+                <select id="cf-source" name="source">
+                  <option value="">Sélectionnez une réponse</option>
+                  <option>Client précédent</option>
+                  <option>Recommandation</option>
+                  <option>Réseaux sociaux</option>
+                  <option>Moteur de recherche</option>
+                  <option>Lors d’un événement</option>
+                  <option>Autre</option>
+                </select>
+              </div>
+            </div>
+            <label class="form-consent">
+              <input type="checkbox" id="cf-consent" required />
+              <span>J’accepte que les informations saisies soient utilisées par Innov Events pour me recontacter au sujet de ma demande. Elles ne seront jamais revendues.</span>
+            </label>
+            <button class="form-submit" type="submit">Envoyer ma demande</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+
+      <section class="locations-section">
+        <div class="contact-intro" style="padding-top:0">
+          <h2>Nous trouver</h2>
+          <p>Basés à Douala, nous intervenons sur l’ensemble du territoire camerounais et dans la sous-région.</p>
+        </div>
+        <div class="locations-inner">
+          <div class="location-card">
+            <span class="location-tag">Siège</span>
+            <h3>Douala</h3>
+            <address>
+              Douala<br />
+              Littoral, Cameroun
+            </address>
+            <a class="location-phone" href="https://wa.me/237653139859">+237 653 13 98 59</a>
+            <a class="text-link" href="https://www.tiktok.com/@innov.events" target="_blank" rel="noreferrer">Nous suivre sur TikTok <b>→</b></a>
+          </div>
+          <div class="location-map">
+            <iframe
+              title="Carte — Douala, Cameroun"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=9.60%2C3.99%2C9.85%2C4.12&amp;layer=mapnik"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="index.html"><img src="images/Logo/logo%20(3).png" alt="Innov Events" /></a><p>Des expériences à vivre,<br />des souvenirs à partager.</p><div class="footer-links"><a class="social-ico ico-tiktok" href="https://www.tiktok.com/@innov.events" target="_blank" rel="noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-2.9v13.1a2.6 2.6 0 1 1-2.1-2.6V9.5a5.7 5.7 0 1 0 5 5.7V8.9a6.6 6.6 0 0 0 3.9 1.3V7.2a3.7 3.7 0 0 1-3.9-3.6z"/></svg></a><a class="social-ico ico-instagram" href="https://www.instagram.com/innovevents_/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" class="ico-line"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.25"/></svg></a><a class="social-ico ico-facebook" href="https://www.facebook.com/Lezeroo/videos/team-innov-innovents-work-events-postday-stayfocus/1793542758506623/?mibextid=wwXIfr&amp;rdid=UzFeJXGl1KtKZana" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6a22 22 0 0 0-2.4-.12c-2.38 0-4 1.45-4 4.11V9.9H7.6V13h2.7v8z"/></svg></a><a class="social-ico ico-gmail" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=innovevents6%40gmail.com" aria-label="Écrire un e-mail avec Gmail">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path fill="#4285f4" d="M3 7.2v10.3c0 .8.7 1.5 1.5 1.5H7V9.7z" />
+    <path fill="#34a853" d="M17 9.7v9.3h2.5c.8 0 1.5-.7 1.5-1.5V7.2z" />
+    <path fill="#fbbc04" d="M3 7.2 5.2 5.4 12 10.6l6.8-5.2L21 7.2v2.5l-9 6.8-9-6.8z" />
+    <path fill="#ea4335" d="M3 7.2V6.5c0-1 .8-1.8 1.8-1.8.4 0 .8.1 1.1.4L12 9.7l6.1-4.6c.3-.2.7-.4 1.1-.4 1 0 1.8.8 1.8 1.8v.7l-9 6.8z" />
+    <path fill="#c5221f" d="M3 9.7l4 3v6.3H4.5c-.8 0-1.5-.7-1.5-1.5z" />
+    <path fill="#188038" d="m21 9.7-4 3v6.3h2.5c.8 0 1.5-.7 1.5-1.5z" />
+  </svg>
+</a><a class="footer-phone" href="https://wa.me/237653139859">+237 653 13 98 59</a></div><small>© 2026 Innov Events. Tous droits réservés.</small></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
