@@ -52,3 +52,14 @@ create policy "Accès complet aux comptes connectés"
 --    (l'e-mail et le mot de passe avec lesquels vous vous connecterez
 --    sur la page admin.html du site)
 -- ============================================================
+drop policy if exists "Envoi autorisé aux comptes connectés" on storage.objects;
+create policy "Envoi autorisé aux comptes connectés"
+  on storage.objects for insert
+  to authenticated
+  with check (bucket_id = 'articles');
+
+drop policy if exists "Lecture publique des images" on storage.objects;
+create policy "Lecture publique des images"
+  on storage.objects for select
+  to public
+  using (bucket_id = 'articles');
