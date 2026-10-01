@@ -2,7 +2,7 @@
 // Renseigne ces deux valeurs depuis Project Settings > API sur supabase.com
 // avant de mettre le site en ligne. Tant qu'elles ne sont pas remplies,
 // le blog et l'administration afficheront un message de configuration.
-const SUPABASE_URL = "sb_publishable_y_5BcfIahyWuwJxBJkV2vQ_XxLyyeNQ";
+const SUPABASE_URL = "https://fznvxiglienzzmafkzhc.supabase.co";
 const SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6bnZ4aWdsaWVuenptYWZremhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxMTY3MzUsImV4cCI6MjEwNTY5MjczNX0.psls0VoOIAmV_jlNT8dWtyCwSJtbsJQRBuMZDYdLDrc";
 
