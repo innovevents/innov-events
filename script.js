@@ -160,8 +160,7 @@ searchInput?.addEventListener('keydown', (event) => {
   }
 });
 
-// Formulaire de contact : validation côté client uniquement.
-// L'envoi réel nécessite un service backend (voir note dans la page).
+// Le site étant statique, le formulaire prépare un e-mail dans l'application du visiteur.
 const contactForm = document.querySelector('#contact-form');
 const formStatus = document.querySelector('#form-status');
 contactForm?.addEventListener('submit', (event) => {
@@ -180,9 +179,22 @@ contactForm?.addEventListener('submit', (event) => {
     formStatus.textContent = 'Merci de remplir tous les champs obligatoires avec une adresse e-mail valide.';
     return;
   }
+  const formData = new FormData(contactForm);
+  const name = formData.get('nom').toString().trim();
+  const body = [
+    `Nom : ${name}`,
+    `E-mail : ${formData.get('email')}`,
+    `Téléphone : ${formData.get('telephone')}`,
+    `Entreprise / Organisation : ${formData.get('organisation') || 'Non renseignée'}`,
+    `Projet : ${formData.get('message')}`,
+    `Source : ${formData.get('source') || 'Non renseignée'}`
+  ].join('\n');
+  const mailto = new URL('mailto:innovevents6@gmail.com');
+  mailto.searchParams.set('subject', `Demande de contact - ${name}`);
+  mailto.searchParams.set('body', body);
+  window.location.href = mailto.toString();
   formStatus.classList.add('success');
-  formStatus.textContent = 'Merci ! Votre demande a bien été prise en compte.';
-  contactForm.reset();
+  formStatus.textContent = 'Votre application e-mail va s’ouvrir avec le message prérempli. Cliquez sur « Envoyer » pour nous transmettre votre demande.';
 });
 
 // Modules carrousel (Histoire / Domaines d'expertise / Solutions) : onglets +
