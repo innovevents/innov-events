@@ -1,52 +1,18 @@
-// ===== Connexion au mini-CMS (Supabase) =====
-// Renseigne ces deux valeurs depuis Project Settings > API sur supabase.com
-// avant de mettre le site en ligne. Tant qu'elles ne sont pas remplies,
-// le blog et l'administration afficheront un message de configuration.
-const SUPABASE_URL = "https://fznvxiglienzzmafkzhc.supabase.co";
-const SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ6bnZ4aWdsaWVuenptYWZremhjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTAxMTY3MzUsImV4cCI6MjEwNTY5MjczNX0.psls0VoOIAmV_jlNT8dWtyCwSJtbsJQRBuMZDYdLDrc";
+// ===== Innov Events — WordPress via Vercel Proxy =====
+// Le navigateur ne contacte plus directement InfinityFree :
+// il appelle la fonction Vercel, qui récupère les articles WordPress.
+const WORDPRESS_PROXY_URL = "https://innov-events-swart.vercel.app/api/posts";
 
-const isSupabaseConfigured = () =>
-  SUPABASE_URL &&
-  !SUPABASE_URL.startsWith("REMPLACER") &&
-  SUPABASE_ANON_KEY &&
-  !SUPABASE_ANON_KEY.startsWith("REMPLACER");
-
-let supabaseClient = null;
-function getSupabase() {
-  if (!isSupabaseConfigured()) return null;
-  if (!supabaseClient && window.supabase) {
-    supabaseClient = window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY,
-    );
-  }
-  return supabaseClient;
-}
-
-function slugify(str) {
-  return str
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-function escapeHtml(str) {
+function escapeHtml(str = "") {
   const div = document.createElement("div");
-  div.textContent = str;
+  div.textContent = String(str);
   return div.innerHTML;
 }
 
-// Convertit un texte brut (paragraphes séparés par une ligne vide) en HTML sûr.
-function textToHtml(text) {
-  return text
-    .split(/\n\s*\n/)
-    .map((p) => p.trim())
-    .filter(Boolean)
-    .map((p) => `<p>${escapeHtml(p).replace(/\n/g, "<br>")}</p>`)
-    .join("");
+function stripHtml(html = "") {
+  const div = document.createElement("div");
+  div.innerHTML = html;
+  return (div.textContent || div.innerText || "").replace(/\s+/g, " ").trim();
 }
 
 function formatDate(iso) {
@@ -57,10 +23,20 @@ function formatDate(iso) {
   });
 }
 
-function showConfigNotice(container) {
-  if (!container) return;
-  container.innerHTML = `<div class="blog-empty">
-    Le blog n'est pas encore connecté à sa base de données.
-    Renseigne <code>SUPABASE_URL</code> et <code>SUPABASE_ANON_KEY</code> dans <code>cms.js</code> pour l'activer.
-  </div>`;
+function getFeaturedImage(post) {
+  const media = post?._embedded?.["wp:featuredmedia"]?.[0];
+  return media?.source_url || media?.media_details?.sizes?.large?.source_url || media?.media_details?.sizes?.medium_large?.source_url || "";
+}
+
+async function getPublishedPosts() {
+  const response = await fetch(`${WORDPRESS_PROXY_URL}?per_page=100&orderby=date&order=desc&_embed=1`);
+  if (!response.ok) throw new Error(`WordPress proxy: ${response.status}`);
+  return response.json();
+}
+
+async function getPostBySlug(slug) {
+  const response = await fetch(`${WORDPRESS_PROXY_URL}?slug=${encodeURIComponent(slug)}&_embed=1`);
+  if (!response.ok) throw new Error(`WordPress proxy: ${response.status}`);
+  const posts = await response.json();
+  return posts[0] || null;
 }

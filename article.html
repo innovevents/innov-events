@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="overrides.css" />
     <link rel="stylesheet" href="blog.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <div class="noise"></div>
@@ -99,27 +98,31 @@
     <script src="script.js"></script>
     <script>
       (async function () {
-        const wrap = document.getElementById('article-wrap');
-        const params = new URLSearchParams(window.location.search);
-        const slug = params.get('slug');
-        if (!isSupabaseConfigured()) { showConfigNotice(wrap); return; }
-        if (!slug) { wrap.innerHTML = '<p class="blog-empty">Article introuvable.</p>'; return; }
-        const sb = getSupabase();
-        const { data, error } = await sb
-          .from('articles')
-          .select('title, excerpt, cover_image, content, created_at')
-          .eq('slug', slug)
-          .eq('published', true)
-          .single();
-        if (error || !data) { wrap.innerHTML = '<p class="blog-empty">Cet article est introuvable ou n’est plus disponible.</p>'; return; }
-        document.getElementById('page-title').textContent = data.title + ' — Innov Events';
-        wrap.innerHTML = `
-          <p class="article-date">${formatDate(data.created_at)}</p>
-          <h1>${escapeHtml(data.title)}</h1>
-          ${data.cover_image ? `<img class="article-cover" src="${data.cover_image}" alt="${escapeHtml(data.title)}" />` : ''}
-          <div class="article-body">${textToHtml(data.content)}</div>
-          <a class="article-back" href="blog.html">← Retour aux actualités</a>
-        `;
+        const wrap = document.getElementById("article-wrap");
+        const slug = new URLSearchParams(window.location.search).get("slug");
+        if (!slug) {
+          wrap.innerHTML = '<p class="blog-empty">Article introuvable.</p>';
+          return;
+        }
+        try {
+          const post = await getPostBySlug(slug);
+          if (!post) {
+            wrap.innerHTML = '<p class="blog-empty">Article introuvable.</p>';
+            return;
+          }
+          const title = post.title?.rendered || "Sans titre";
+          const image = getFeaturedImage(post);
+          document.title = `${stripHtml(title)} — Innov Events`;
+          wrap.innerHTML = `
+            <p class="article-date">${formatDate(post.date)}</p>
+            <h1>${escapeHtml(title)}</h1>
+            ${image ? `<img class="article-cover" src="${escapeHtml(image)}" alt="${escapeHtml(title)}" />` : ""}
+            <div class="article-body">${post.content?.rendered || ""}</div>
+            <a class="article-back" href="blog.html">← Retour aux actualités</a>`;
+        } catch (error) {
+          console.error(error);
+          wrap.innerHTML = '<p class="blog-empty">Impossible de charger cet article pour le moment.</p>';
+        }
       })();
     </script>
   </body>

@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="overrides.css" />
     <link rel="stylesheet" href="blog.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <div class="noise"></div>
@@ -289,38 +288,28 @@
     <script>
       (async function () {
         const grid = document.getElementById("blog-grid");
-        if (!isSupabaseConfigured()) {
-          showConfigNotice(grid);
-          return;
+        try {
+          const data = await getPublishedPosts();
+          if (!data.length) {
+            grid.innerHTML = '<p class="blog-empty">Aucun article publié pour l’instant.</p>';
+            return;
+          }
+          grid.innerHTML = data.map((a) => {
+            const title = a.title?.rendered || "Sans titre";
+            const excerpt = stripHtml(a.excerpt?.rendered || a.content?.rendered || "");
+            const image = getFeaturedImage(a);
+            return `
+              <a class="blog-card" href="article.html?slug=${encodeURIComponent(a.slug)}">
+                ${image ? `<figure><img src="${escapeHtml(image)}" alt="${escapeHtml(title)}" /></figure>` : ""}
+                <p class="blog-date">${formatDate(a.date)}</p>
+                <h2>${escapeHtml(title)}</h2>
+                <p>${escapeHtml(excerpt)}</p>
+              </a>`;
+          }).join("");
+        } catch (error) {
+          console.error(error);
+          grid.innerHTML = '<p class="blog-empty">Impossible de charger les articles pour le moment.</p>';
         }
-        const sb = getSupabase();
-        const { data, error } = await sb
-          .from("articles")
-          .select("title, slug, excerpt, cover_image, created_at")
-          .eq("published", true)
-          .order("created_at", { ascending: false });
-        if (error) {
-          grid.innerHTML =
-            '<p class="blog-empty">Impossible de charger les articles pour le moment.</p>';
-          return;
-        }
-        if (!data.length) {
-          grid.innerHTML =
-            '<p class="blog-empty">Aucun article publié pour l’instant.</p>';
-          return;
-        }
-        grid.innerHTML = data
-          .map(
-            (a) => `
-          <a class="blog-card" href="article.html?slug=${encodeURIComponent(a.slug)}">
-            <figure><img src="${a.cover_image || "images/membres%20du%20personnel/A%20(21).png"}" alt="${escapeHtml(a.title)}" /></figure>
-            <p class="blog-date">${formatDate(a.created_at)}</p>
-            <h2>${escapeHtml(a.title)}</h2>
-            <p>${escapeHtml(a.excerpt || "")}</p>
-          </a>
-        `,
-          )
-          .join("");
       })();
     </script>
   </body>
