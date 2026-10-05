@@ -52,9 +52,59 @@
       return res.status(response.status).json(data);
     }
 
-    // WordPress.com renvoie { posts: [...] }.
-    // Notre frontend reçoit directement le tableau des articles.
-    const posts = Array.isArray(data.posts) ? data.posts : [];
+    const wordpressPosts = Array.isArray(data.posts)
+      ? data.posts
+      : [];
+
+    /*
+     * WordPress.com API v1.1 utilise un format différent
+     * du WordPress REST API v2 utilisé par le frontend Innov Events.
+     *
+     * On convertit donc les données ici afin de conserver
+     * la compatibilité avec le site existant.
+     */
+
+    const posts = wordpressPosts.map((post) => ({
+      id: post.ID,
+      date: post.date,
+      modified: post.modified,
+      slug: post.slug,
+      status: post.status,
+      link: post.URL,
+
+      title: {
+        rendered: post.title || ""
+      },
+
+      content: {
+        rendered: post.content || "",
+        protected: false
+      },
+
+      excerpt: {
+        rendered: post.excerpt || "",
+        protected: false
+      },
+
+      featured_media: 0,
+
+      /*
+       * WordPress.com fournit directement l'URL de l'image
+       * dans featured_image.
+       */
+      _embedded: post.featured_image
+        ? {
+            "wp:featuredmedia": [
+              {
+                source_url: post.featured_image
+              }
+            ]
+          }
+        : {},
+
+      categories: [],
+      tags: []
+    }));
 
     res.setHeader(
       "Content-Type",
